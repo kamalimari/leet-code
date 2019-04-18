@@ -104,7 +104,7 @@ def city_containing_character_z():
 
 
 def no_of_stores_in_each_city():
-    no_of_stores_in_each_city = []
+
 
 
 
