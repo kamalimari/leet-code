@@ -50,8 +50,18 @@ def country_having_the_most_number_of_stores():
         if result == None:
             do = True
         else:
-            print(result)
+            # print(result)
+            max_country_ = max_country(result)
+            print(max_country_)
             break
+
+
+def max_country(result_):
+    for pincode_datas in range(len(pincode_)):
+        if pincode_[pincode_datas] == result_:
+            output_max_country = country[pincode_datas]
+            break
+    return output_max_country
 
 
 def maximum(data__,dictionary__):
@@ -88,10 +98,10 @@ def city_containing_character_z():
     city_containing_character_z_output = []
     for item in range(len(pincode_)):
         empty_dict_data_from_location_file[country[item]] = pincode_[item]
-    print(empty_dict_data_from_location_file)
+    # print(empty_dict_data_from_location_file)
     for items in range(len(store_name)):
         empty_dict_data_from_store_file[store_name[items]] = pincode[items]
-    print(empty_dict_data_from_store_file)
+    # print(empty_dict_data_from_store_file)
     for key_store, val_store in empty_dict_data_from_store_file.items():
         temp = key_store
         to_check = val_store
@@ -104,11 +114,36 @@ def city_containing_character_z():
 
 
 def no_of_stores_in_each_city():
+    pincode_and_city_joining = {}
+    pincode_and_city_joining_output = {}
+    for item_ in range(len(city)):
+        pincode_and_city_joining[city[item_]] = pincode_[item_]
+    pincode_and_city_joining_dict = dict(pincode_and_city_joining)
+    # print(pincode_and_city_joining_dict)
+    counter_pincode = Counter(pincode)
+    counter_pincode_dict = dict(counter_pincode)
+    # print(counter_pincode_dict)
+    for key_element, val_element in pincode_and_city_joining_dict.items():
+        key_element_ = key_element
+        val_element_ = val_element
+        for key_counter_, val_counter_ in counter_pincode_dict.items():
+            if val_element_ == key_counter_:
+                pincode_and_city_joining_output[key_element_] = val_counter_
+    return pincode_and_city_joining_output
 
 
-
-
-
+def total_build_area_of_all_stores_built_last_year():
+    df['date_of_opening'] = pd.to_datetime(df.date_of_opening)
+    year_ = df.date_of_opening.dt.year
+    year_collection_list = []
+    total_build_area_of_all_stores_built_last_year_output = []
+    for year_item in year_:
+        year_collection_list.append(year_item)
+    for year_elements in range(len(year_collection_list)):
+        if year_collection_list[year_elements] == 2018:
+            total_build_area_of_all_stores_built_last_year_output.append(build_area[year_elements])
+    sum_ = sum(total_build_area_of_all_stores_built_last_year_output)
+    return sum_
 
 
 
@@ -125,6 +160,11 @@ print(saturday_or_sunday_)
 city_containing_character_z_ = city_containing_character_z()
 print(city_containing_character_z_)
 
+no_of_stores_in_each_city_ = no_of_stores_in_each_city()
+print(no_of_stores_in_each_city_)
+
+total_build_area_of_all_stores_built_last_year_ = total_build_area_of_all_stores_built_last_year()
+print(total_build_area_of_all_stores_built_last_year_)
 
 
 
