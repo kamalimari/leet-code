@@ -38,7 +38,7 @@ def country_having_the_most_number_of_stores():
     # print(dictionary)
     dictionary_values_in_descending = []
 
-    for key, val in dictionary.items():
+    for key, val in dictionary.items():# displaying in reverse
         dictionary_values_in_descending.append(val)
         dictionary_values_in_descending.sort(reverse=True)
     # print(dictionary_values_in_descending)
@@ -46,7 +46,7 @@ def country_having_the_most_number_of_stores():
     for i in range(len(dictionary_values_in_descending)):
         data = dictionary_values_in_descending[i]
         # print(data)
-        result = maximum(data,dictionary)
+        result = maximum(data,dictionary)#maximum value identifying function
         if result == None:
             do = True
         else:
@@ -80,10 +80,14 @@ def saturday_or_sunday():
     output_for_day_storing_data = []
     date_storing_dict['dates'] = date_of_opening
     # print(date_storing_dict)
-    df = pd.DataFrame(date_storing_dict)
+    df = pd.DataFrame(date_storing_dict)  #changing the dictionary to dataframe
+    # print(df)
     df['dates'] = pd.to_datetime(df['dates'])
+    # print(df)#changing the dataframe to datetime format, so that the datatype is changed from object to datatime format
     df['day_of_week'] = df['dates'].dt.day_name()
+    # print(df)
     for index, row in df.iterrows():
+        # print(row)
         day_storing_list.append(row[1])
     # print(day_storing_list)
     for days in range(len(day_storing_list)):
@@ -97,18 +101,18 @@ def city_containing_character_z():
     empty_dict_data_from_store_file = {}
     city_containing_character_z_output = []
     for item in range(len(pincode_)):
-        empty_dict_data_from_location_file[country[item]] = pincode_[item]
+        empty_dict_data_from_location_file[city[item]] = pincode_[item]
     # print(empty_dict_data_from_location_file)
     for items in range(len(store_name)):
         empty_dict_data_from_store_file[store_name[items]] = pincode[items]
     # print(empty_dict_data_from_store_file)
-    for key_store, val_store in empty_dict_data_from_store_file.items():
+    for key_store, val_store in empty_dict_data_from_store_file.items():# store_name and pincode from store file
         temp = key_store
         to_check = val_store
-        for key_location, val_location in empty_dict_data_from_location_file.items():
-            if to_check == val_location:
+        for key_location, val_location in empty_dict_data_from_location_file.items():#city and pincode from location file
+            if to_check == val_location:# pincode in store file equals to pincode in location file checking
                 take_key = list(key_location)
-                if 'z' in take_key or 'Z' in take_key:
+                if 'z' in take_key or 'Z' in take_key or 'Ż' in take_key:
                     city_containing_character_z_output.append(temp)
     return city_containing_character_z_output
 
@@ -117,30 +121,32 @@ def no_of_stores_in_each_city():
     pincode_and_city_joining = {}
     pincode_and_city_joining_output = {}
     for item_ in range(len(city)):
-        pincode_and_city_joining[city[item_]] = pincode_[item_]
+        pincode_and_city_joining[city[item_]] = pincode_[item_]#city and pincode joining from location file
     pincode_and_city_joining_dict = dict(pincode_and_city_joining)
     # print(pincode_and_city_joining_dict)
     counter_pincode = Counter(pincode)
     counter_pincode_dict = dict(counter_pincode)
     # print(counter_pincode_dict)
-    for key_element, val_element in pincode_and_city_joining_dict.items():
+    for key_element, val_element in pincode_and_city_joining_dict.items(): #data from city and pincode joining from location file
         key_element_ = key_element
         val_element_ = val_element
-        for key_counter_, val_counter_ in counter_pincode_dict.items():
-            if val_element_ == key_counter_:
+        for key_counter_, val_counter_ in counter_pincode_dict.items():#data from pincode counter
+            if val_element_ == key_counter_:#checking pincode in location file and pincode in store file
                 pincode_and_city_joining_output[key_element_] = val_counter_
     return pincode_and_city_joining_output
 
 
 def total_build_area_of_all_stores_built_last_year():
-    df['date_of_opening'] = pd.to_datetime(df.date_of_opening)
-    year_ = df.date_of_opening.dt.year
+    df['date_of_opening'] = pd.to_datetime(df.date_of_opening)# changing the datatype in to datetime format
+    year_ = df.date_of_opening.dt.year #retriving and storing year only
+    # print(year_)
     year_collection_list = []
     total_build_area_of_all_stores_built_last_year_output = []
     for year_item in year_:
         year_collection_list.append(year_item)
     for year_elements in range(len(year_collection_list)):
         if year_collection_list[year_elements] == 2018:
+            # print(build_area[year_elements])
             total_build_area_of_all_stores_built_last_year_output.append(build_area[year_elements])
     sum_ = sum(total_build_area_of_all_stores_built_last_year_output)
     return sum_
