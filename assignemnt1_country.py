@@ -191,6 +191,6 @@ print(number_of_stores_in_each_country_)
 
 
 
-    # print(index['pincode'], index['city'])
+
 
 
