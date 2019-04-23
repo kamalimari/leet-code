@@ -87,7 +87,6 @@ def saturday_or_sunday():
     df['day_of_week'] = df['dates'].dt.day_name()
     # print(df)
     for index, row in df.iterrows():
-        # print(row)
         day_storing_list.append(row[1])
     # print(day_storing_list)
     for days in range(len(day_storing_list)):
@@ -152,7 +151,22 @@ def total_build_area_of_all_stores_built_last_year():
     return sum_
 
 
-
+def number_of_stores_in_each_country():
+    temp_list = []
+    dictionary__ = {}
+    counter_for_pin_in_store_file = Counter(pincode)
+    dict_for_pin_in_store_file = dict(counter_for_pin_in_store_file)
+    for first in range(len(country)):
+        sum_ = 0
+        temp = str(country[first]) #poland
+        if temp not in temp_list:
+            for i in range(len(country)):
+                if temp == str(country[i]):# poland == poland
+                    for key, val in dict_for_pin_in_store_file.items():
+                        if pincode_[i] == key:
+                            sum_ = sum_ + val
+        dictionary__[temp] = sum_
+    return dictionary__
 
 
 result_build_area_greater_than_4000 = build_area_greater_than_4000()
@@ -172,7 +186,8 @@ print(no_of_stores_in_each_city_)
 total_build_area_of_all_stores_built_last_year_ = total_build_area_of_all_stores_built_last_year()
 print(total_build_area_of_all_stores_built_last_year_)
 
-
+number_of_stores_in_each_country_ = number_of_stores_in_each_country()
+print(number_of_stores_in_each_country_)
 
 
 
