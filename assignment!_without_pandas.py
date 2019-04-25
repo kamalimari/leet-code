@@ -78,7 +78,6 @@ def country_having_most_no_of_stores():
     print(output)
 
 country_having_most_no_of_stores()
-# {'Poland': 28, 'Brazil': 36, 'Philippines': 33, 'Egypt': 6, 'Yemen': 13, 'United States': 14, 'Madagascar': 5, 'Jordan': 7, 'Tunisia': 7, 'Germany': 3, 'Paraguay': 4, 'China': 153, 'Thailand': 32, 'Kazakhstan': 10, 'Indonesia': 47, 'Croatia': 8, 'Russia': 42, 'Sweden': 14, 'Somalia': 5, 'Mongolia': 3, 'Honduras': 12, 'Peru': 1, 'Colombia': 8, 'Portugal': 43, 'Ukraine': 14, 'Ireland': 6, 'Sri Lanka': 4, 'Ethiopia': 2, 'Czech Republic': 20, 'South Africa': 7, 'Mexico': 15, 'Argentina': 10, 'Martinique': 5, 'Netherlands': 7, 'France': 11, 'Syria': 5, 'Japan': 10, 'Israel': 2, 'Malaysia': 6, 'Afghanistan': 7, 'Macedonia': 7, 'Lithuania': 9, 'Malawi': 7, 'Spain': 5, 'Luxembourg': 3, 'Cuba': 5, 'Niger': 6, 'Chad': 5, 'Bangladesh': 9, 'Albania': 4, 'Cayman Islands': 3, 'Canada': 6, 'Norway': 3, 'Botswana': 7, 'Micronesia': 5, 'Malta': 4, 'Dominica': 7, 'Nicaragua': 8, 'Nepal': 5, 'Mauritius': 5, 'Morocco': 3, 'Vietnam': 5, 'Serbia': 6, 'Sudan': 4, 'Uruguay': 6, 'Mali': 1}
 
 
 
